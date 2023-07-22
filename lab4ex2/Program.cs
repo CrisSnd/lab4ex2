@@ -26,9 +26,10 @@ namespace MyApp
             int[,,] matrice = new int[n, m, k];
 
 
+             CitireMatrice (matrice,  n,  m,  k);
+            //AfisareMatrice (matrice, n, m, k);
 
-             AfisareMatrice( matrice,  n,  m,  k);
-       
+             AfisareMatrice (matrice, n, m, k);
 
             Console.WriteLine("Suma matricei este:" + SumaElementeMatrice(matrice, n, m, k));
 
@@ -39,28 +40,34 @@ namespace MyApp
 
 
 
-            static void AfisareMatrice(int[,,] matrice, int n, int m, int k)
-            {
-                
-                Console.WriteLine("\n" + "Introduceti elementele matricei3D: ");
+        static void CitireMatrice(int[,,] matrice, int n, int m, int k)
+        {
 
-                for (int i = 0; i < n; i++)
+            Console.WriteLine("\n" + "Introduceti elementele matricei3D: ");
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
                 {
-                    for (int j = 0; j < m; j++)
+                    for (int l = 0; l < k; l++)
                     {
-                        for (int l = 0; l < k; l++)
-                        {
                         matrice[i, j, l] = int.Parse(Console.ReadLine());
-                         
-                        }
 
                     }
-                  
 
                 }
 
+            }
+        }
+
+
+
+
+         static int[,,] AfisareMatrice(int[,,] matrice, int n, int m, int k)
+         { 
+                int [,,] mat= new int[n, m, k];
                  Console.WriteLine("Matricea rezultata este:  ");
-                
+
                 for (int i = 0; i < n; i++)
                 {
                     for (int j = 0; j < m; j++)
@@ -73,10 +80,12 @@ namespace MyApp
 
                     }
 
-
                 }
+             return mat;
+          }
+                
+             
 
-            }
 
 
             static int SumaElementeMatrice(int [,,] matrice,int n, int m, int k)
